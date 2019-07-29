@@ -23,12 +23,14 @@ for word in selected_words:
     vec = model.wv[word]
     print("Word: {s_word}\nVector = {vector}\n".format(s_word=word,vector=vec[0:5]))
 """
+cntr = 0
 for fileNum in range(1,31):
     with open("vocabulary/vocabulary_%.2d.txt" %fileNum, 'r',encoding='utf-8') as f:
         word = f.readline().rstrip('\n')
-        vec = model.wv[word]
-        print("Word: {s_word} \nVector = {vector} \n".format(s_word=word, vector=vec[0:5]))
         while word:
-            word = f.readline().rstrip('\n')
+            cntr+= 1
+            print(cntr)
             vec = model.wv[word]
             print("Word: {s_word} \nVector = {vector} \n".format(s_word=word, vector=vec[0:5]))
+            word = f.readline().rstrip('\n')
+
