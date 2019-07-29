@@ -25,7 +25,14 @@ def tsne_plot(model):
     tokens = []
     words= ['king', 'queen','man','woman','robot','tiger','jungle','cheetah','boy' \
         ,'girl','human','desert','fight','movie','tv','show','computer','notebook','python']
-    #vocab = list(model.wv.vocab)
+
+    '''
+    # OR: visualize words from the model
+    
+    vocab = list(model.wv.vocab)
+    words = vocab[1:100]
+    '''
+
     for word in words:
         tokens.append(model[word])
         labels.append(word)

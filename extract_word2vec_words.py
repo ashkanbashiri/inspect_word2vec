@@ -19,12 +19,8 @@ model = gensim.models.KeyedVectors.load_word2vec_format('./model/GoogleNews-vect
 # Does the model include stop words?
 print("Does it include the stop words like \'a\', \'and\', \'the\'? %d %d %d" % ('a' in model.vocab, 'and' in model.vocab, 'the' in model.vocab))
 
-# Retrieve the entire list of "words" from the Google Word2Vec model, and write
-# these out to text files so we can peruse them.
 vocab = list(model.vocab.keys())
-
 fileNum = 1
-
 wordsInVocab = len(vocab)
 wordsPerFile = int(100E3)
 
@@ -36,5 +32,4 @@ for wordIndex in range(0, wordsInVocab, wordsPerFile):
         for i in range(wordIndex, wordIndex + wordsPerFile):
             f.write(vocab[i]+'\n')
 
-    
     fileNum += 1
